@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Domain
 {
     public class Table: Entity
     {
         public virtual string Name { get; set; }
-
-        //всякие дочерние классы
+        
+        public virtual Database Database { get; set; }
+        
+        public virtual List<Column> Columns { get; set; }
     }
 }
