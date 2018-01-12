@@ -1,6 +1,6 @@
 ﻿namespace Domain
 {
-    public class RelationType
+    public class RelationType: Entity
     {
         public virtual string Name { get; set; }
     }

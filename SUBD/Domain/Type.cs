@@ -1,6 +1,6 @@
 ﻿namespace Domain
 {
-    public class Type
+    public class Type: Entity
     {
         public virtual string Name { get; set; }
         

@@ -1,7 +1,7 @@
 ﻿
 namespace Domain
 {
-    public class Mask
+    public class Mask: Entity
     {
         public virtual int MinValue { get; set; }
         

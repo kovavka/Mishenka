@@ -1,6 +1,6 @@
 ﻿namespace Domain
 {
-    public class Column
+    public class Column: Entity
     {
         public virtual int TableId { get; set; }
         

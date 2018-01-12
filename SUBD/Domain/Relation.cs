@@ -1,6 +1,6 @@
 ﻿namespace Domain
 {
-    public class Relation
+    public class Relation: Entity
     {
         public virtual int SourceTableId { get; set; }
         
