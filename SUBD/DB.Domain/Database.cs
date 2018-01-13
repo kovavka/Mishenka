@@ -2,10 +2,10 @@
 
 namespace Domain
 {
-    public class Table: Entity
+    public class Database: Entity
     {
         public virtual string Name { get; set; }
-                
-        public virtual List<Column> Columns { get; set; }
+        
+        public virtual List<Table> Tables { get; set; }
     }
 }
