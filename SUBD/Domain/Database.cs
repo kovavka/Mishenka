@@ -6,6 +6,6 @@ namespace Domain
     {
         public virtual string Name { get; set; }
         
-        public virtual List<Table> Tables { get; set; }
+        public virtual ICollection<Table> Tables { get; set; }
     }
 }
