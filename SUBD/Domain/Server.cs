@@ -6,6 +6,10 @@ namespace Domain
     {
         public virtual string Address { get; set; }
 
-        public virtual List<Database> Databases { get; set; }
+        public virtual string Login { get; set; }
+
+        public virtual string Password { get; set; }
+        
+        public virtual ICollection<Database> Databases { get; set; }
     }
 }
