@@ -16,5 +16,16 @@ namespace SUBD
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Domain.DataBaseContext context = new Domain.DataBaseContext();
+
+            Domain.Table table = new Domain.Table();
+            table.Name = "table-1";
+            context.Tables.Add(table);
+            context.SaveChanges();
+
+        }
     }
 }
