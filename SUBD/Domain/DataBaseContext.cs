@@ -9,6 +9,9 @@ namespace Domain
 {
     public class DataBaseContext : DbContext
     {
+        // в base строка подключения к бд. Оно так работает, я не знаю как красиво сделать. 
+        // Data Source=DESKTOP-JIUUOJ8\SQLEXPRESS; -- это сервер
+        // Initial Catalog=MetaBase; -- это название базы данных )
         public DataBaseContext() : 
             base(@"Data Source=DESKTOP-JIUUOJ8\SQLEXPRESS;Initial Catalog=MetaBase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         {

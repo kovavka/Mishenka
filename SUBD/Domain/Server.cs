@@ -9,6 +9,8 @@ namespace Domain
         public virtual string Login { get; set; }
 
         public virtual string Password { get; set; }
+
+        public virtual bool authenticationWithLoginPassword { get; set; }
         
         public virtual ICollection<Database> Databases { get; set; }
     }
