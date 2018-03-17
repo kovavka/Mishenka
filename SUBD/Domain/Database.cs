@@ -7,6 +7,7 @@ namespace Domain
         public virtual string Name { get; set; }
         
         public virtual ICollection<Table> Tables { get; set; }
+        public virtual ICollection<Relation> Relations { get; set; }
 
         public override string ToString()
         {

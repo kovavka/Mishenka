@@ -23,7 +23,7 @@ namespace Controls
             bool isValid = true;
 
             foreach (var fieldInfo in fields
-                .Where(x => x.FieldType == (typeof(TextEdit))))
+                .Where(x => x.FieldType == (typeof(TextEdit)) || x.FieldType == (typeof(ComboEdit))))
             {
                 var method = fieldInfo.FieldType.GetMethod("IsValid");
                 var value = ReflectionHelper.GetPropertyOrFieldValue(view, fieldInfo.AsEnumerable());

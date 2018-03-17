@@ -32,14 +32,16 @@
             this.manage = new System.Windows.Forms.LinkLabel();
             this.dbComboEdit = new Controls.ComboEdit();
             this.gridViewTables = new SUBD.GridView();
-            this.gridView2 = new SUBD.GridView();
+            this.gridViewColumns = new SUBD.GridView();
             this.gridViewRelations = new SUBD.GridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLabel = new System.Windows.Forms.Label();
+            this.save = new System.Windows.Forms.Button();
+            this.maskManage = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTables)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewColumns)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewRelations)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +67,7 @@
             // 
             // dbComboEdit
             // 
+            this.dbComboEdit.CanWrite = true;
             this.dbComboEdit.DataSource = null;
             this.dbComboEdit.ForeColor = System.Drawing.SystemColors.Control;
             this.dbComboEdit.Location = new System.Drawing.Point(25, 33);
@@ -84,13 +87,13 @@
             this.gridViewTables.Size = new System.Drawing.Size(145, 156);
             this.gridViewTables.TabIndex = 10;
             // 
-            // gridView2
+            // gridViewColumns
             // 
-            this.gridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridView2.Location = new System.Drawing.Point(268, 94);
-            this.gridView2.Name = "gridView2";
-            this.gridView2.Size = new System.Drawing.Size(310, 156);
-            this.gridView2.TabIndex = 11;
+            this.gridViewColumns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridViewColumns.Location = new System.Drawing.Point(268, 94);
+            this.gridViewColumns.Name = "gridViewColumns";
+            this.gridViewColumns.Size = new System.Drawing.Size(310, 156);
+            this.gridViewColumns.TabIndex = 11;
             // 
             // gridViewRelations
             // 
@@ -99,6 +102,7 @@
             this.gridViewRelations.Name = "gridViewRelations";
             this.gridViewRelations.Size = new System.Drawing.Size(553, 171);
             this.gridViewRelations.TabIndex = 12;
+            this.gridViewRelations.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewRelations_CellDoubleClick);
             // 
             // label2
             // 
@@ -130,30 +134,53 @@
             // tableLabel
             // 
             this.tableLabel.AutoSize = true;
-            this.tableLabel.Location = new System.Drawing.Point(367, 78);
+            this.tableLabel.Location = new System.Drawing.Point(368, 78);
             this.tableLabel.Name = "tableLabel";
             this.tableLabel.Size = new System.Drawing.Size(30, 13);
             this.tableLabel.TabIndex = 16;
             this.tableLabel.Text = "table";
+            // 
+            // save
+            // 
+            this.save.Location = new System.Drawing.Point(503, 481);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(75, 23);
+            this.save.TabIndex = 17;
+            this.save.Text = "Сохранить";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
+            // maskManage
+            // 
+            this.maskManage.AutoSize = true;
+            this.maskManage.Location = new System.Drawing.Point(358, 40);
+            this.maskManage.Name = "maskManage";
+            this.maskManage.Size = new System.Drawing.Size(118, 13);
+            this.maskManage.TabIndex = 18;
+            this.maskManage.TabStop = true;
+            this.maskManage.Text = "Управление масками";
+            this.maskManage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.maskManage_LinkClicked);
             // 
             // TableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 516);
+            this.Controls.Add(this.maskManage);
+            this.Controls.Add(this.save);
             this.Controls.Add(this.tableLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gridViewRelations);
-            this.Controls.Add(this.gridView2);
+            this.Controls.Add(this.gridViewColumns);
             this.Controls.Add(this.gridViewTables);
             this.Controls.Add(this.manage);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dbComboEdit);
             this.Name = "TableForm";
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTables)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewColumns)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewRelations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -165,11 +192,13 @@
         private System.Windows.Forms.LinkLabel manage;
         private Controls.ComboEdit dbComboEdit;
         private GridView gridViewTables;
-        private GridView gridView2;
+        private GridView gridViewColumns;
         private GridView gridViewRelations;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label tableLabel;
+        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.LinkLabel maskManage;
     }
 }
