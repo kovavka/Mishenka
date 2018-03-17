@@ -28,6 +28,33 @@ namespace SUBD
 
         private void LoadServers()
         {
+            var table1 = new Table()
+            {
+                Name = "ddddsvr"
+            };
+
+            table1.Columns = new List<Column>()
+            {
+                new Column()
+                {
+                    Name = "gvgvj",
+                    Table = table1
+                }
+            };
+
+            var table2 = new Table()
+            {
+                Name = "tt",
+            };
+            table2.Columns = new List<Column>()
+            {
+                new Column()
+                {
+                    Name = "qq",
+                    Table = table2
+                }
+            };
+
             var list =new List<Server>()
             {
                 new Server()
@@ -39,12 +66,35 @@ namespace SUBD
                         new Database()
                         {
                             Id= 1,
-                            Name="33"
+                            Name="33",
+                            Relations = new List<Relation>()
+                            {
+                                new Relation()
+                                {
+                                    Name = "dd",
+                                },
+                                new Relation()
+                                {
+                                    Name = "dfdf",
+                                }
+                            },
+                            Tables = new List<Table>()
+                            {
+                                table1
+                            }
                         },
                         new Database()
                         {
                             Id= 2,
-                            Name="ddd"
+                            Name="ddd",
+                            Relations=new List<Relation>(),
+                            Tables = new List<Table>()
+                            {
+                                new Table()
+                                {
+                                    Name="fdb"
+                                }
+                            }
                         }
                     }
                 },

@@ -52,6 +52,7 @@ namespace Controls
 
         public bool CanWrite
         {
+            get { return comboBox.DropDownStyle == ComboBoxStyle.DropDown; }
             set
             {
                 if (value)

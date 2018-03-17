@@ -42,6 +42,11 @@ namespace SUBD
                 Rows[e.RowIndex].ErrorText = null;
 
         }
+        
+        public void ClearValidations()
+        {
+            validation.Clear();
+        }
 
         public void AddValidation(string key, ValidationItem value)
         {
@@ -64,9 +69,11 @@ namespace SUBD
     {
         private readonly GridView gridView;
 
-        public GridViewCreator(GridView gridView, IList<T> dataSource)
+        public GridViewCreator(GridView gridView, BindingList<T> dataSource)
         {
             this.gridView = gridView;
+            gridView.ClearValidations();
+            gridView.DataSource = null;
             gridView.DataSource = dataSource;
 
             for (int i = 0; i < gridView.Columns.Count; i++)
@@ -89,6 +96,16 @@ namespace SUBD
             return this;
         }
 
+        public GridViewCreator<T> ReadOnly()
+        {
+            if (lastColumnName.IsNullOrEmpty())
+                throw new Exception();
+            
+            gridView.Columns[lastColumnName].ReadOnly = true;
+
+            return this;
+        }
+        
         public GridViewCreator<T> Validate(Func<object, bool> func, string message)
         {
             if (lastColumnName.IsNullOrEmpty())
@@ -107,7 +124,7 @@ namespace SUBD
 
         public GridViewCreator<T> NotNull()
         {
-            return Validate(x => !x.ToString().IsNullOrEmpty(), lastHeaderText + "должно быть задано");
+            return Validate(x => !x.ToString().IsNullOrEmpty(), lastHeaderText + " должно быть задано");
         }
     }
 }
