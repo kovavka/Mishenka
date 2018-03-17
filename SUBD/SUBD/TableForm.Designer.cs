@@ -67,7 +67,7 @@
             // 
             // dbComboEdit
             // 
-            this.dbComboEdit.CanWrite = true;
+            this.dbComboEdit.CanWrite = false;
             this.dbComboEdit.DataSource = null;
             this.dbComboEdit.ForeColor = System.Drawing.SystemColors.Control;
             this.dbComboEdit.Location = new System.Drawing.Point(25, 33);
@@ -86,21 +86,24 @@
             this.gridViewTables.Name = "gridViewTables";
             this.gridViewTables.Size = new System.Drawing.Size(145, 156);
             this.gridViewTables.TabIndex = 10;
+            this.gridViewTables.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewTables_RowEnter);
+            this.gridViewTables.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewTables_RowLeave);
             // 
             // gridViewColumns
             // 
             this.gridViewColumns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridViewColumns.Location = new System.Drawing.Point(268, 94);
+            this.gridViewColumns.Location = new System.Drawing.Point(25, 298);
             this.gridViewColumns.Name = "gridViewColumns";
-            this.gridViewColumns.Size = new System.Drawing.Size(310, 156);
+            this.gridViewColumns.Size = new System.Drawing.Size(553, 156);
             this.gridViewColumns.TabIndex = 11;
+            this.gridViewColumns.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewColumns_CellDoubleClick);
             // 
             // gridViewRelations
             // 
             this.gridViewRelations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridViewRelations.Location = new System.Drawing.Point(25, 297);
+            this.gridViewRelations.Location = new System.Drawing.Point(245, 94);
             this.gridViewRelations.Name = "gridViewRelations";
-            this.gridViewRelations.Size = new System.Drawing.Size(553, 171);
+            this.gridViewRelations.Size = new System.Drawing.Size(333, 156);
             this.gridViewRelations.TabIndex = 12;
             this.gridViewRelations.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewRelations_CellDoubleClick);
             // 
@@ -116,7 +119,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(265, 78);
+            this.label3.Location = new System.Drawing.Point(22, 282);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 14;
@@ -125,7 +128,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 281);
+            this.label4.Location = new System.Drawing.Point(242, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 15;
@@ -134,7 +137,7 @@
             // tableLabel
             // 
             this.tableLabel.AutoSize = true;
-            this.tableLabel.Location = new System.Drawing.Point(368, 78);
+            this.tableLabel.Location = new System.Drawing.Point(125, 282);
             this.tableLabel.Name = "tableLabel";
             this.tableLabel.Size = new System.Drawing.Size(30, 13);
             this.tableLabel.TabIndex = 16;
