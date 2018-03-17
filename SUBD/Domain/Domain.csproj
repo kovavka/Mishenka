@@ -56,6 +56,7 @@
     <Compile Include="Relation.cs" />
     <Compile Include="RelationType.cs" />
     <Compile Include="Server.cs" />
+    <Compile Include="Storage\TableStorage.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="Type.cs" />
   </ItemGroup>
