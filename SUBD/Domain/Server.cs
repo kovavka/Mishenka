@@ -14,6 +14,8 @@ namespace Domain
         
         public virtual ICollection<Database> Databases { get; set; }
 
+        public virtual ICollection<Mask> Masks { get; set; }
+
         public override string ToString()
         {
             return Address;

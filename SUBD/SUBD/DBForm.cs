@@ -30,7 +30,7 @@ namespace SUBD
         private void LoadDatabases()
         {
             //TODO: загрузить дб - BindingList<Database> мб этого уже хватит я хз
-            dataSource = new BindingList<Database>(server.Databases.ToList());
+            dataSource = new BindingList<Database>(server.Databases.WithEnumerable().ToList());
 
             new GridViewCreator<Database>(gridView, dataSource)
                 .Column("Наименование", x => x.Name).NotNull();
@@ -38,7 +38,7 @@ namespace SUBD
         
         private void save_Click(object sender, EventArgs e)
         {
-            //TODO: сохранить дб (dataSource)
+            //TODO: сохранить в бд dataSource
             // ??
 
             Close();

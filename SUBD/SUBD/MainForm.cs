@@ -30,27 +30,27 @@ namespace SUBD
         {
             var table1 = new Table()
             {
-                Name = "ddddsvr"
+                Name = "один"
             };
 
             table1.Columns = new List<Column>()
             {
                 new Column()
                 {
-                    Name = "gvgvj",
+                    Name = "один",
                     Table = table1
                 }
             };
 
             var table2 = new Table()
             {
-                Name = "tt",
+                Name = "два",
             };
             table2.Columns = new List<Column>()
             {
                 new Column()
                 {
-                    Name = "qq",
+                    Name = "два",
                     Table = table2
                 }
             };
@@ -80,21 +80,29 @@ namespace SUBD
                             },
                             Tables = new List<Table>()
                             {
-                                table1
+                                table1,
+                                table2
                             }
                         },
                         new Database()
                         {
                             Id= 2,
-                            Name="ddd",
+                            Name="три",
                             Relations=new List<Relation>(),
                             Tables = new List<Table>()
                             {
                                 new Table()
                                 {
-                                    Name="fdb"
+                                    Name="три"
                                 }
                             }
+                        }
+                    },
+                    Masks = new List<Mask>()
+                    {
+                        new Mask()
+                        {
+                            Name = "ddd"
                         }
                     }
                 },
