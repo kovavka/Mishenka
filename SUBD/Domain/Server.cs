@@ -10,8 +10,13 @@ namespace Domain
 
         public virtual string Password { get; set; }
 
-        public virtual bool authenticationWithLoginPassword { get; set; }
+        public virtual bool UseAuth { get; set; }
         
         public virtual ICollection<Database> Databases { get; set; }
+
+        public override string ToString()
+        {
+            return Address;
+        }
     }
 }
