@@ -2,7 +2,9 @@
 {
     public class Column: Entity
     {
-        public virtual int TableId { get; set; }
+        //надеюсь, так будет работать, если что сделайте, как было
+        //public virtual int TableId { get; set; }
+        public virtual Table Table { get; set; }
         
         public virtual string Name { get; set; }
         
@@ -19,5 +21,10 @@
         public virtual bool IsAutoIncrement { get; set; }
         
         public virtual bool IsPrimaryKey { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Table.Name}.{Name}";
+        }
     }
 }
