@@ -17,7 +17,7 @@ namespace Domain
 
         // (@"Data Source=DESKTOP-JIUUOJ8\SQLEXPRESS;Initial Catalog=MetaBase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         public DataBaseContext() : 
-            base(@"Persist Security Info=False;User ID=sa;Password=Erestor412;Initial Catalog=MetaBase;Server=localhost,1433")
+            base(@"Data Source=DESKTOP-JIUUOJ8;Initial Catalog=MetaBase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         {
 
         }

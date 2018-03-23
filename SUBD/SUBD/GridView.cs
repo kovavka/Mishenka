@@ -16,7 +16,7 @@ namespace SUBD
     public partial class GridView : DataGridView
     {
         private readonly Dictionary<string, ValidationItem> validation = new Dictionary<string, ValidationItem>();
-        
+
         public GridView()
         {
             InitializeComponent();
@@ -24,15 +24,15 @@ namespace SUBD
             CellValidating += gridView_CellValidating;
             DataError += onDataError;
         }
-        
+
         private void gridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             string headerText = Columns[e.ColumnIndex].DataPropertyName;
-            
+
             if (!validation.ContainsKey(headerText)) return;
 
             var item = validation[headerText];
-            
+
             if (!item.Func(e.FormattedValue))
             {
                 Rows[e.RowIndex].ErrorText = item.ErrorMessage;
@@ -42,7 +42,7 @@ namespace SUBD
                 Rows[e.RowIndex].ErrorText = null;
 
         }
-        
+
         public void ClearValidations()
         {
             validation.Clear();
@@ -65,7 +65,7 @@ namespace SUBD
         public Func<object, bool> Func { get; set; }
     }
 
-    public class GridViewCreator<T> where T: IEntity
+    public class GridViewCreator<T> where T : IEntity
     {
         private readonly GridView gridView;
 
@@ -88,8 +88,14 @@ namespace SUBD
         {
             var valueName = ReflectionHelper.GetMemberInfoPath(valueAccessor)[0].Name;
 
-            gridView.Columns[valueName].Visible = true;
-            gridView.Columns[valueName].HeaderText = caption;
+            if (gridView.Columns[valueName] != null)
+            {
+
+                gridView.Columns[valueName].Visible = true;
+                gridView.Columns[valueName].HeaderText = caption;
+
+            }
+
             lastColumnName = valueName;
             lastHeaderText = caption;
 
@@ -100,17 +106,18 @@ namespace SUBD
         {
             if (lastColumnName.IsNullOrEmpty())
                 throw new Exception();
-            
-            gridView.Columns[lastColumnName].ReadOnly = true;
+
+            if (gridView.Columns[lastColumnName] != null)
+                gridView.Columns[lastColumnName].ReadOnly = true;
 
             return this;
         }
-        
+
         public GridViewCreator<T> Validate(Func<object, bool> func, string message)
         {
             if (lastColumnName.IsNullOrEmpty())
-                throw new Exception();
-            
+                throw new NullReferenceException();
+
             var val = new ValidationItem()
             {
                 ErrorMessage = message,

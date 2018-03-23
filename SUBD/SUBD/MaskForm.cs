@@ -16,11 +16,13 @@ namespace SUBD
     {
         private readonly Server server;
         BindingList<Mask> dataSource = new BindingList<Mask>();
+        DataBaseContext dbContext;
 
-        public MaskForm(Server server)
+        public MaskForm(Server server, DataBaseContext dbContext)
         {
             InitializeComponent();
 
+            this.dbContext = dbContext;
             this.server = server;
             Text = "Data Source = " + server.Address;
 
@@ -44,6 +46,16 @@ namespace SUBD
         {
             //TODO: сохранить сохранить в бд dataSource
             // ??
+
+            foreach (var x in dataSource)
+            {
+                if (x.Id == 0)
+                {
+                    dbContext.Servers.Find(server.Id).Masks.Add(x);
+                }
+            }
+
+            dbContext.SaveChanges();
 
             Close();
         }

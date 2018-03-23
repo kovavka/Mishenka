@@ -16,11 +16,12 @@ namespace SUBD
     {
         private readonly Server server;
         BindingList<Database> dataSource = new BindingList<Database>();
+        private DataBaseContext dbContext;
 
-        public DBForm(Server server)
+        public DBForm(Server server, DataBaseContext dbContext)
         {
             InitializeComponent();
-
+            this.dbContext = dbContext;
             this.server = server;
             Text = "Data Source = " + server.Address;
 
@@ -40,6 +41,22 @@ namespace SUBD
         {
             //TODO: сохранить в бд dataSource
             // ??
+
+            foreach(var database in dataSource)
+            {
+                if (database.Id == 0)
+                {
+                    var old = dbContext.Servers.Find(server.Id);
+                    old.Databases.Add(database);
+                }
+                else
+                {
+                    var old = dbContext.Databases.Find(database.Id);
+                    old.Name = database.Name;
+                }
+
+                dbContext.SaveChanges();
+            }
 
             Close();
         }

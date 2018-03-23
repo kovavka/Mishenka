@@ -8,15 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controls;
+using Domain;
 
 namespace SUBD
 {
     public partial class AddForm : Form
     {
-        public AddForm()
+
+        private DataBaseContext dbContext;
+
+        public AddForm(DataBaseContext dbContext)
         {
             InitializeComponent();
 
+            this.dbContext = dbContext;
             login.NotNull();
             password.NotNull();
             server.NotNull();
@@ -58,7 +63,9 @@ namespace SUBD
 
 
             //TODO добавление сервера
-            //servers.Add(address, useAuth, log, pass);
+            dbContext.Servers.Add(new Server() { Address = address, UseAuth = useAuth, Login = log, Password =  pass });
+            dbContext.SaveChanges();
+            this.Close();
         }
     }
 }
