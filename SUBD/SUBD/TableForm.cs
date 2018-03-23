@@ -15,13 +15,17 @@ namespace SUBD
     public partial class TableForm : Form
     {
         
-        private readonly Server server;
+        private  Server server;
         private readonly List<BindingDataBase> bindingDataBases = new List<BindingDataBase>();
+        
 
-        public TableForm(Server server)
+        private DataBaseContext dbContext;
+
+        public TableForm(Server server, DataBaseContext dbContext)
         {
             InitializeComponent();
 
+            this.dbContext = dbContext;
             this.server = server;
             Text = "Data Source = " + server.Address;
             dbComboEdit.CanWrite = false;
@@ -66,6 +70,9 @@ namespace SUBD
         private void LoadDBs()
         {
             //TODO: загрузить дб - List<Database>
+
+            server = dbContext.Servers.Find(server.Id);
+            
             dbComboEdit.DataSource = server.Databases;
             
             foreach (var dataBase in server.Databases)
@@ -74,8 +81,8 @@ namespace SUBD
                     bindingDataBases.Add(new BindingDataBase()
                     {
                         Database = dataBase.Id,
-                        Relations = new BindingList<Relation>(dataBase.Relations.ToList()),
-                        Tables = new BindingList<Table>(dataBase.Tables.ToList()),
+                        Relations = new BindingList<Relation>(dataBase.Relations.WithEnumerable().ToList()),
+                        Tables = new BindingList<Table>(dataBase.Tables.WithEnumerable().ToList()),
                     });
             }
             var bindsToRemove = new List<BindingDataBase>();
@@ -89,7 +96,7 @@ namespace SUBD
                 bindingDataBases.Remove(bind);
             }
 
-            if (Relations != null && Tables != null)
+            if (Relations != null || Tables != null)
             {
                 Last.Relations = Relations;
                 Last.Tables = Tables;
@@ -135,14 +142,9 @@ namespace SUBD
                     foreach (var column in table.Columns.Where(x => x.Mask != null))
                         if (maskToRemove.Contains(column.Mask.Id))
                             column.Mask = null;
-
                 }
-
             }
-
-
             RecreateGrids();
-
         }
 
         private void RecreateGrids()
@@ -186,7 +188,7 @@ namespace SUBD
 
         private void manage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new DBForm(server).ShowDialog();
+            new DBForm(server, dbContext).ShowDialog();
             LoadDBs();
         }
 
@@ -209,37 +211,67 @@ namespace SUBD
 
         private void maskManage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new MaskForm(server).ShowDialog();
+            new MaskForm(server, dbContext).ShowDialog();
             LoadDBs();
         }
         
         private void gridViewTables_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
             if (Current.Tables.Count<= e.RowIndex)
-                return;
-            Current.Tables[e.RowIndex].Columns = Columns;
+                return;            
+
+            foreach (var a in Columns)
+            {
+                if (a.Id is 0)
+                {
+                    
+                }
+                else
+                {
+
+                }
+            }
+
+           // Current.Tables[e.RowIndex].Columns = Columns;
         }
 
         private void gridViewTables_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (Current.Tables.Count <= e.RowIndex)
+            {
+
+                RecreateColumns();
                 return;
+            }
             Columns = new BindingList<Column>(Current.Tables[e.RowIndex].Columns.WithEnumerable().ToList());
             RecreateColumns();
         }
 
         private void gridViewColumns_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            var table = Tables.Where(x => x.Columns == Columns).First();
 
+            var view = new ColumnForm(server, table);
+           //nothing
+
+           
+            if (view.ShowDialog() == DialogResult.OK)
+            {
+                //table.Columns = view.Get
+
+                //Current.Relations[e.RowIndex] = view.GetRelation();
+                //Relations = new BindingList<Relation>(Current.Relations.ToList());
+                //RecreateGrids();
+            }
         }
     }
 
-    class BindingDataBase
+    class BindingDataBase // в чом
     {
         public int Database { get; set; }
         public BindingList<Relation> Relations { get; set; }
         public BindingList<Table> Tables { get; set; }
-        public List<BindingTable> BindingTables = new List<BindingTable>();
+        public List<BindingTable> BindingTables = new List<BindingTable>();  //в чем их смысол галя
     }
 
     class BindingTable
