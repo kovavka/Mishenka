@@ -26,7 +26,6 @@ namespace Domain
         public DbSet<Database> Databases { get; set; }
         public DbSet<Mask> Masks { get; set; }
         public DbSet<Relation> Relations { get; set; }
-        public DbSet<RelationType> RelationTypes { get; set; }
         public DbSet<Server> Servers { get; set; }
         public DbSet<Table> Tables { get; set; }
         public DbSet<Type> Types { get; set; }
