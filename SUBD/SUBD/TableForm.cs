@@ -174,6 +174,8 @@ namespace SUBD
                     .Column("Автоинкрементный", x => x.IsAutoIncrement)
                     .Column("Первичный ключ", x => x.IsPrimaryKey);
             else gridViewColumns.DataSource = null;
+
+            gridViewColumns.Width = 1000;
         }
 
 
