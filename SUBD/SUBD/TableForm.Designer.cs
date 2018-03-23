@@ -96,10 +96,11 @@
             // gridViewColumns
             // 
             this.gridViewColumns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridViewColumns.Location = new System.Drawing.Point(33, 367);
+            this.gridViewColumns.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gridViewColumns.Location = new System.Drawing.Point(0, 395);
             this.gridViewColumns.Margin = new System.Windows.Forms.Padding(4);
             this.gridViewColumns.Name = "gridViewColumns";
-            this.gridViewColumns.Size = new System.Drawing.Size(737, 192);
+            this.gridViewColumns.Size = new System.Drawing.Size(1080, 240);
             this.gridViewColumns.TabIndex = 11;
             this.gridViewColumns.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewColumns_CellDoubleClick);
             // 
