@@ -18,7 +18,7 @@ namespace SUBD
         private readonly Database database;
         BindingList<Database> dataSource = new BindingList<Database>();
 
-        public ColumnForm(Server server)
+        public ColumnForm(Server server, Table table)
         {
             InitializeComponent();
 

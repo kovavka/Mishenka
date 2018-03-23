@@ -48,18 +48,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 17);
+            this.label1.Location = new System.Drawing.Point(29, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.Size = new System.Drawing.Size(92, 17);
             this.label1.TabIndex = 8;
             this.label1.Text = "База данных";
             // 
             // manage
             // 
             this.manage.AutoSize = true;
-            this.manage.Location = new System.Drawing.Point(255, 40);
+            this.manage.Location = new System.Drawing.Point(340, 49);
+            this.manage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.manage.Name = "manage";
-            this.manage.Size = new System.Drawing.Size(69, 13);
+            this.manage.Size = new System.Drawing.Size(88, 17);
             this.manage.TabIndex = 9;
             this.manage.TabStop = true;
             this.manage.Text = "Управление";
@@ -70,11 +72,12 @@
             this.dbComboEdit.CanWrite = false;
             this.dbComboEdit.DataSource = null;
             this.dbComboEdit.ForeColor = System.Drawing.SystemColors.Control;
-            this.dbComboEdit.Location = new System.Drawing.Point(25, 33);
-            this.dbComboEdit.MaximumSize = new System.Drawing.Size(300, 23);
-            this.dbComboEdit.MinimumSize = new System.Drawing.Size(0, 23);
+            this.dbComboEdit.Location = new System.Drawing.Point(33, 41);
+            this.dbComboEdit.Margin = new System.Windows.Forms.Padding(5);
+            this.dbComboEdit.MaximumSize = new System.Drawing.Size(400, 28);
+            this.dbComboEdit.MinimumSize = new System.Drawing.Size(0, 28);
             this.dbComboEdit.Name = "dbComboEdit";
-            this.dbComboEdit.Size = new System.Drawing.Size(209, 23);
+            this.dbComboEdit.Size = new System.Drawing.Size(279, 28);
             this.dbComboEdit.TabIndex = 0;
             this.dbComboEdit.Value = null;
             this.dbComboEdit.ValueIndex = -1;
@@ -82,9 +85,10 @@
             // gridViewTables
             // 
             this.gridViewTables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridViewTables.Location = new System.Drawing.Point(25, 94);
+            this.gridViewTables.Location = new System.Drawing.Point(33, 116);
+            this.gridViewTables.Margin = new System.Windows.Forms.Padding(4);
             this.gridViewTables.Name = "gridViewTables";
-            this.gridViewTables.Size = new System.Drawing.Size(145, 156);
+            this.gridViewTables.Size = new System.Drawing.Size(193, 192);
             this.gridViewTables.TabIndex = 10;
             this.gridViewTables.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewTables_RowEnter);
             this.gridViewTables.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewTables_RowLeave);
@@ -92,62 +96,69 @@
             // gridViewColumns
             // 
             this.gridViewColumns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridViewColumns.Location = new System.Drawing.Point(25, 298);
+            this.gridViewColumns.Location = new System.Drawing.Point(33, 367);
+            this.gridViewColumns.Margin = new System.Windows.Forms.Padding(4);
             this.gridViewColumns.Name = "gridViewColumns";
-            this.gridViewColumns.Size = new System.Drawing.Size(553, 156);
+            this.gridViewColumns.Size = new System.Drawing.Size(737, 192);
             this.gridViewColumns.TabIndex = 11;
             this.gridViewColumns.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewColumns_CellDoubleClick);
             // 
             // gridViewRelations
             // 
             this.gridViewRelations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridViewRelations.Location = new System.Drawing.Point(245, 94);
+            this.gridViewRelations.Location = new System.Drawing.Point(327, 116);
+            this.gridViewRelations.Margin = new System.Windows.Forms.Padding(4);
             this.gridViewRelations.Name = "gridViewRelations";
-            this.gridViewRelations.Size = new System.Drawing.Size(333, 156);
+            this.gridViewRelations.Size = new System.Drawing.Size(444, 192);
             this.gridViewRelations.TabIndex = 12;
             this.gridViewRelations.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewRelations_CellDoubleClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 78);
+            this.label2.Location = new System.Drawing.Point(29, 96);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(67, 17);
             this.label2.TabIndex = 13;
             this.label2.Text = "Таблицы";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 282);
+            this.label3.Location = new System.Drawing.Point(29, 347);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 13);
+            this.label3.Size = new System.Drawing.Size(140, 17);
             this.label3.TabIndex = 14;
             this.label3.Text = "Аттрибуты таблицы";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(242, 78);
+            this.label4.Location = new System.Drawing.Point(323, 96);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.Size = new System.Drawing.Size(85, 17);
             this.label4.TabIndex = 15;
             this.label4.Text = "Отношения";
             // 
             // tableLabel
             // 
             this.tableLabel.AutoSize = true;
-            this.tableLabel.Location = new System.Drawing.Point(125, 282);
+            this.tableLabel.Location = new System.Drawing.Point(167, 347);
+            this.tableLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tableLabel.Name = "tableLabel";
-            this.tableLabel.Size = new System.Drawing.Size(30, 13);
+            this.tableLabel.Size = new System.Drawing.Size(39, 17);
             this.tableLabel.TabIndex = 16;
             this.tableLabel.Text = "table";
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(503, 481);
+            this.save.Location = new System.Drawing.Point(671, 592);
+            this.save.Margin = new System.Windows.Forms.Padding(4);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(75, 23);
+            this.save.Size = new System.Drawing.Size(100, 28);
             this.save.TabIndex = 17;
             this.save.Text = "Сохранить";
             this.save.UseVisualStyleBackColor = true;
@@ -156,9 +167,10 @@
             // maskManage
             // 
             this.maskManage.AutoSize = true;
-            this.maskManage.Location = new System.Drawing.Point(358, 40);
+            this.maskManage.Location = new System.Drawing.Point(477, 49);
+            this.maskManage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.maskManage.Name = "maskManage";
-            this.maskManage.Size = new System.Drawing.Size(118, 13);
+            this.maskManage.Size = new System.Drawing.Size(148, 17);
             this.maskManage.TabIndex = 18;
             this.maskManage.TabStop = true;
             this.maskManage.Text = "Управление масками";
@@ -166,9 +178,9 @@
             // 
             // TableForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 516);
+            this.ClientSize = new System.Drawing.Size(1080, 635);
             this.Controls.Add(this.maskManage);
             this.Controls.Add(this.save);
             this.Controls.Add(this.tableLabel);
@@ -181,6 +193,7 @@
             this.Controls.Add(this.manage);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dbComboEdit);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TableForm";
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewColumns)).EndInit();
